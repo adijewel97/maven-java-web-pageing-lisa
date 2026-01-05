@@ -1,0 +1,374 @@
+2026-01-05 07:57:04.074 - INFO: vtahun_laporan: 2026
+2026-01-05 07:57:05.606 - INFO: vtahun_laporan: 2026
+2026-01-05 07:57:05.737 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 07:57:05.814 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 07:57:08.031 - INFO: draw = 1
+2026-01-05 07:57:08.032 - INFO: offset (startIndex) = 0
+2026-01-05 07:57:08.032 - INFO: limit (length) = 10
+2026-01-05 07:57:08.033 - INFO: sortBy = MATERIAL_GROUP_ID ASC
+2026-01-05 07:57:08.033 - INFO: searchValue = 
+2026-01-05 07:57:08.033 - INFO: vtahun_laporan = 2026
+2026-01-05 07:57:08.034 - INFO: vkd_prov = 11
+2026-01-05 07:57:08.034 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:00:56.246 - INFO: draw = 2
+2026-01-05 08:00:56.246 - INFO: offset (startIndex) = 0
+2026-01-05 08:00:56.246 - INFO: limit (length) = 10
+2026-01-05 08:00:56.246 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:00:56.246 - INFO: searchValue = 
+2026-01-05 08:00:56.246 - INFO: vtahun_laporan = 2026
+2026-01-05 08:00:56.246 - INFO: vkd_prov = 11
+2026-01-05 08:00:56.246 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:00:56.376 - INFO: draw = 3
+2026-01-05 08:00:56.376 - INFO: offset (startIndex) = 0
+2026-01-05 08:00:56.376 - INFO: limit (length) = 10
+2026-01-05 08:00:56.376 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:00:56.376 - INFO: searchValue = 
+2026-01-05 08:00:56.376 - INFO: vtahun_laporan = 2026
+2026-01-05 08:00:56.376 - INFO: vkd_prov = 11
+2026-01-05 08:00:56.376 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:02:19.936 - INFO: vtahun_laporan: 2026
+2026-01-05 08:02:20.123 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 08:02:22.182 - INFO: draw = 1
+2026-01-05 08:02:22.182 - INFO: offset (startIndex) = 0
+2026-01-05 08:02:22.182 - INFO: limit (length) = 10
+2026-01-05 08:02:22.185 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:02:22.185 - INFO: searchValue = 
+2026-01-05 08:02:22.185 - INFO: vtahun_laporan = 2026
+2026-01-05 08:02:22.185 - INFO: vkd_prov = 11
+2026-01-05 08:02:22.185 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:13:52.589 - INFO: vtahun_laporan: 2026
+2026-01-05 08:13:52.856 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 08:13:54.647 - INFO: draw = 1
+2026-01-05 08:13:54.648 - INFO: offset (startIndex) = 0
+2026-01-05 08:13:54.649 - INFO: limit (length) = 10
+2026-01-05 08:13:54.649 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:13:54.652 - INFO: searchValue = 
+2026-01-05 08:13:54.653 - INFO: vtahun_laporan = 2026
+2026-01-05 08:13:54.653 - INFO: vkd_prov = 11
+2026-01-05 08:13:54.653 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:19:59.471 - INFO: vtahun_laporan: 2026
+2026-01-05 08:20:02.616 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 08:23:14.477 - INFO: draw = 1
+2026-01-05 08:23:14.478 - INFO: offset (startIndex) = 0
+2026-01-05 08:23:14.479 - INFO: limit (length) = 10
+2026-01-05 08:23:14.479 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:23:14.479 - INFO: searchValue = 
+2026-01-05 08:23:14.479 - INFO: vtahun_laporan = 2026
+2026-01-05 08:23:14.479 - INFO: vkd_prov = 11
+2026-01-05 08:23:14.479 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:29:54.815 - INFO: vtahun_laporan: 2026
+2026-01-05 08:29:56.262 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 08:29:58.299 - INFO: order column index = 0
+2026-01-05 08:29:58.300 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:29:58.300 - INFO: draw = 1
+2026-01-05 08:29:58.301 - INFO: offset (startIndex) = 0
+2026-01-05 08:29:58.301 - INFO: limit (length) = 10
+2026-01-05 08:29:58.302 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:29:58.302 - INFO: searchValue = 
+2026-01-05 08:29:58.303 - INFO: vtahun_laporan = 2026
+2026-01-05 08:29:58.303 - INFO: vkd_prov = 11
+2026-01-05 08:29:58.303 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:35:54.504 - INFO: vtahun_laporan: 2026
+2026-01-05 08:35:55.852 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 08:35:57.704 - INFO: order column index = 0
+2026-01-05 08:35:57.704 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:35:57.704 - INFO: draw = 1
+2026-01-05 08:35:57.704 - INFO: offset (startIndex) = 0
+2026-01-05 08:35:57.704 - INFO: limit (length) = 10
+2026-01-05 08:35:57.705 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:35:57.705 - INFO: searchValue = 
+2026-01-05 08:35:57.705 - INFO: vtahun_laporan = 2026
+2026-01-05 08:35:57.705 - INFO: vkd_prov = 11
+2026-01-05 08:35:57.705 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:39:44.574 - INFO: order column index = 0
+2026-01-05 08:39:44.577 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:39:44.577 - INFO: draw = 2
+2026-01-05 08:39:44.578 - INFO: offset (startIndex) = 0
+2026-01-05 08:39:44.578 - INFO: limit (length) = 10
+2026-01-05 08:39:44.579 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:39:44.580 - INFO: searchValue = 
+2026-01-05 08:39:44.580 - INFO: vtahun_laporan = 2026
+2026-01-05 08:39:44.581 - INFO: vkd_prov = 11
+2026-01-05 08:39:44.582 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:39:44.889 - INFO: order column index = 0
+2026-01-05 08:39:44.889 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:39:44.889 - INFO: draw = 3
+2026-01-05 08:39:44.889 - INFO: offset (startIndex) = 0
+2026-01-05 08:39:44.889 - INFO: limit (length) = 10
+2026-01-05 08:39:44.889 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:39:44.889 - INFO: searchValue = 
+2026-01-05 08:39:44.889 - INFO: vtahun_laporan = 2026
+2026-01-05 08:39:44.889 - INFO: vkd_prov = 11
+2026-01-05 08:39:44.889 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:42:11.973 - INFO: vtahun_laporan: 2026
+2026-01-05 08:42:12.207 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 08:42:14.238 - INFO: order column index = 0
+2026-01-05 08:42:14.238 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:42:14.239 - INFO: draw = 1
+2026-01-05 08:42:14.239 - INFO: offset (startIndex) = 0
+2026-01-05 08:42:14.239 - INFO: limit (length) = 10
+2026-01-05 08:42:14.239 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:42:14.239 - INFO: searchValue = 
+2026-01-05 08:42:14.239 - INFO: vtahun_laporan = 2026
+2026-01-05 08:42:14.241 - INFO: vkd_prov = 11
+2026-01-05 08:42:14.241 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:43:21.810 - INFO: vtahun_laporan: 2026
+2026-01-05 08:43:23.346 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 08:43:26.055 - INFO: order column index = 0
+2026-01-05 08:43:26.055 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:43:26.055 - INFO: draw = 1
+2026-01-05 08:43:26.055 - INFO: offset (startIndex) = 0
+2026-01-05 08:43:26.055 - INFO: limit (length) = 10
+2026-01-05 08:43:26.055 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:43:26.055 - INFO: searchValue = 
+2026-01-05 08:43:26.055 - INFO: vtahun_laporan = 2026
+2026-01-05 08:43:26.055 - INFO: vkd_prov = 11
+2026-01-05 08:43:26.055 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:46:17.956 - INFO: vtahun_laporan: 2026
+2026-01-05 08:46:19.453 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 08:46:21.383 - INFO: order column index = 0
+2026-01-05 08:46:21.385 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:46:21.385 - INFO: draw = 1
+2026-01-05 08:46:21.385 - INFO: offset (startIndex) = 0
+2026-01-05 08:46:21.385 - INFO: limit (length) = 10
+2026-01-05 08:46:21.385 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:46:21.385 - INFO: searchValue = 
+2026-01-05 08:46:21.385 - INFO: vtahun_laporan = 2026
+2026-01-05 08:46:21.385 - INFO: vkd_prov = 11
+2026-01-05 08:46:21.385 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 08:48:42.899 - INFO: order column index = 0
+2026-01-05 08:48:42.899 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:48:42.905 - INFO: draw = 2
+2026-01-05 08:48:42.906 - INFO: offset (startIndex) = 0
+2026-01-05 08:48:42.907 - INFO: limit (length) = 10
+2026-01-05 08:48:42.907 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:48:42.908 - INFO: searchValue = 
+2026-01-05 08:48:42.909 - INFO: vtahun_laporan = 2026
+2026-01-05 08:48:42.910 - INFO: vkd_prov = 11
+2026-01-05 08:48:42.911 - INFO: vinfolabel = JTM_WO
+2026-01-05 08:48:54.023 - INFO: order column index = 0
+2026-01-05 08:48:54.024 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 08:48:54.025 - INFO: draw = 3
+2026-01-05 08:48:54.025 - INFO: offset (startIndex) = 0
+2026-01-05 08:48:54.026 - INFO: limit (length) = 10
+2026-01-05 08:48:54.026 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 08:48:54.030 - INFO: searchValue = 
+2026-01-05 08:48:54.030 - INFO: vtahun_laporan = 2026
+2026-01-05 08:48:54.030 - INFO: vkd_prov = 11
+2026-01-05 08:48:54.030 - INFO: vinfolabel = JTM_WO
+2026-01-05 09:12:45.946 - INFO: vtahun_laporan: 2026
+2026-01-05 09:12:46.278 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 09:12:48.134 - INFO: order column index = 0
+2026-01-05 09:12:48.134 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 09:12:48.137 - INFO: draw = 1
+2026-01-05 09:12:48.137 - INFO: offset (startIndex) = 0
+2026-01-05 09:12:48.137 - INFO: limit (length) = 10
+2026-01-05 09:12:48.137 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 09:12:48.137 - INFO: searchValue = 
+2026-01-05 09:12:48.137 - INFO: vtahun_laporan = 2026
+2026-01-05 09:12:48.137 - INFO: vkd_prov = 11
+2026-01-05 09:12:48.137 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 09:14:11.584 - INFO: order column index = 0
+2026-01-05 09:14:11.585 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 09:14:11.586 - INFO: draw = 2
+2026-01-05 09:14:11.587 - INFO: offset (startIndex) = 0
+2026-01-05 09:14:11.588 - INFO: limit (length) = 10
+2026-01-05 09:14:11.589 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 09:14:11.590 - INFO: searchValue = 
+2026-01-05 09:14:11.591 - INFO: vtahun_laporan = 2026
+2026-01-05 09:14:11.591 - INFO: vkd_prov = 11
+2026-01-05 09:14:11.592 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 09:14:11.879 - INFO: order column index = 0
+2026-01-05 09:14:11.880 - INFO: resolved sortBy = NOMOR_KONTRAK_RINCI
+2026-01-05 09:14:11.880 - INFO: draw = 3
+2026-01-05 09:14:11.881 - INFO: offset (startIndex) = 0
+2026-01-05 09:14:11.881 - INFO: limit (length) = 10
+2026-01-05 09:14:11.881 - INFO: sortBy = NOMOR_KONTRAK_RINCI ASC
+2026-01-05 09:14:11.881 - INFO: searchValue = 
+2026-01-05 09:14:11.881 - INFO: vtahun_laporan = 2026
+2026-01-05 09:14:11.881 - INFO: vkd_prov = 11
+2026-01-05 09:14:11.881 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 09:57:25.455 - INFO: vtahun_laporan: 2026
+2026-01-05 09:57:26.979 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 09:57:28.566 - INFO: vtahun_laporan: 2026
+2026-01-05 09:57:28.824 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 09:57:31.137 - INFO: draw=1
+2026-01-05 09:57:31.137 - INFO: start=1, length=10
+2026-01-05 09:57:31.138 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 09:57:31.138 - INFO: search=
+2026-01-05 10:10:01.938 - INFO: vtahun_laporan: 2026
+2026-01-05 10:10:04.738 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:10:06.812 - INFO: draw=1
+2026-01-05 10:10:06.813 - INFO: start=1, length=10
+2026-01-05 10:10:06.813 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:10:06.813 - INFO: search=
+2026-01-05 10:13:50.921 - INFO: vtahun_laporan: 2026
+2026-01-05 10:13:53.556 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:13:55.953 - INFO: draw=1
+2026-01-05 10:13:55.953 - INFO: start=1, length=10
+2026-01-05 10:13:55.954 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:13:55.954 - INFO: search=
+2026-01-05 10:15:21.040 - INFO: vtahun_laporan: 2026
+2026-01-05 10:15:22.488 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:15:24.535 - INFO: draw=1
+2026-01-05 10:15:24.536 - INFO: start=1, length=10
+2026-01-05 10:15:24.536 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:15:24.536 - INFO: search=
+2026-01-05 10:25:12.213 - INFO: vtahun_laporan: 2026
+2026-01-05 10:25:12.495 - INFO: Jumlah data dikembalikan: 0
+2026-01-05 10:25:18.281 - INFO: vtahun_laporan: 2026
+2026-01-05 10:25:18.570 - INFO: Jumlah data dikembalikan: 0
+2026-01-05 10:25:54.504 - INFO: vtahun_laporan: 2026
+2026-01-05 10:25:55.742 - INFO: Jumlah data dikembalikan: 0
+2026-01-05 10:32:49.687 - INFO: vtahun_laporan: 2026
+2026-01-05 10:32:50.119 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:32:52.515 - INFO: draw=1
+2026-01-05 10:32:52.517 - INFO: start=1, length=10
+2026-01-05 10:32:52.517 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:32:52.518 - INFO: search=
+2026-01-05 10:42:38.736 - INFO: vtahun_laporan: 2026
+2026-01-05 10:42:40.923 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:42:43.072 - INFO: draw=1
+2026-01-05 10:42:43.073 - INFO: start=1, length=10
+2026-01-05 10:42:43.073 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:42:43.074 - INFO: search=
+2026-01-05 10:43:58.034 - INFO: vtahun_laporan: 2026
+2026-01-05 10:44:02.024 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:44:04.130 - INFO: draw=1
+2026-01-05 10:44:04.130 - INFO: start=1, length=10
+2026-01-05 10:44:04.130 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:44:04.130 - INFO: search=
+2026-01-05 10:44:32.958 - INFO: vtahun_laporan: 2026
+2026-01-05 10:44:33.175 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:44:34.914 - INFO: draw=1
+2026-01-05 10:44:34.915 - INFO: start=1, length=10
+2026-01-05 10:44:34.916 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:44:34.916 - INFO: search=
+2026-01-05 10:47:39.749 - INFO: vtahun_laporan: 2026
+2026-01-05 10:47:41.563 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:47:43.807 - INFO: draw=1
+2026-01-05 10:47:43.808 - INFO: start=1, length=10
+2026-01-05 10:47:43.808 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:47:43.808 - INFO: search=
+2026-01-05 10:52:33.205 - INFO: vtahun_laporan: 2026
+2026-01-05 10:52:34.023 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:53:45.563 - INFO: vtahun_laporan: 2026
+2026-01-05 10:53:46.151 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 10:53:48.159 - INFO: draw=1
+2026-01-05 10:53:48.160 - INFO: start=1, length=10
+2026-01-05 10:53:48.160 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 10:53:48.161 - INFO: search=
+2026-01-05 13:07:59.389 - INFO: draw = 1
+2026-01-05 13:07:59.389 - INFO: offset (startIndex) = 0
+2026-01-05 13:07:59.389 - INFO: limit (length) = 1000
+2026-01-05 13:07:59.389 - INFO: sortBy = MATERIAL_GROUP_ID ASC
+2026-01-05 13:07:59.389 - INFO: searchValue = null
+2026-01-05 13:07:59.389 - INFO: vtahun_laporan = 2026
+2026-01-05 13:07:59.391 - INFO: vkd_prov = null
+2026-01-05 13:07:59.391 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 13:08:11.294 - INFO: vtahun_laporan: 2026
+2026-01-05 13:08:11.514 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:12:41.649 - INFO: vtahun_laporan: 2026
+2026-01-05 13:12:41.976 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:12:43.463 - INFO: vtahun_laporan: 2026
+2026-01-05 13:12:43.629 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:13:15.821 - INFO: vtahun_laporan: 2026
+2026-01-05 13:13:16.076 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:14:00.050 - INFO: vtahun_laporan: 2026
+2026-01-05 13:14:01.196 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:14:01.992 - INFO: vtahun_laporan: 2026
+2026-01-05 13:14:02.193 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:15:50.711 - INFO: vtahun_laporan: 2026
+2026-01-05 13:15:50.961 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:15:53.812 - INFO: vtahun_laporan: 2026
+2026-01-05 13:15:54.090 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:23:54.602 - INFO: vtahun_laporan: 2026
+2026-01-05 13:23:55.072 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:23:55.896 - INFO: vtahun_laporan: 2026
+2026-01-05 13:23:56.679 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:32:53.015 - INFO: vtahun_laporan: 2026
+2026-01-05 13:32:53.234 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:32:54.252 - INFO: vtahun_laporan: 2026
+2026-01-05 13:32:54.464 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:33:28.157 - INFO: draw=1
+2026-01-05 13:33:28.158 - INFO: start=1, length=10
+2026-01-05 13:33:28.159 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:33:28.159 - INFO: search=
+2026-01-05 13:33:32.982 - INFO: draw = 1
+2026-01-05 13:33:32.982 - INFO: offset (startIndex) = 0
+2026-01-05 13:33:32.982 - INFO: limit (length) = 1000
+2026-01-05 13:33:32.982 - INFO: sortBy = MATERIAL_GROUP_ID ASC
+2026-01-05 13:33:32.982 - INFO: searchValue = null
+2026-01-05 13:33:32.982 - INFO: vtahun_laporan = 2026
+2026-01-05 13:33:32.982 - INFO: vkd_prov = null
+2026-01-05 13:33:32.982 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 13:33:56.677 - INFO: draw = 1
+2026-01-05 13:33:56.677 - INFO: offset (startIndex) = 0
+2026-01-05 13:33:56.682 - INFO: limit (length) = 1000
+2026-01-05 13:33:56.682 - INFO: sortBy = MATERIAL_GROUP_ID ASC
+2026-01-05 13:33:56.682 - INFO: searchValue = null
+2026-01-05 13:33:56.683 - INFO: vtahun_laporan = 2026
+2026-01-05 13:33:56.683 - INFO: vkd_prov = null
+2026-01-05 13:33:56.683 - INFO: vinfolabel = JTM_RENCANA
+2026-01-05 13:36:32.086 - INFO: vtahun_laporan: 2026
+2026-01-05 13:36:32.273 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:36:33.957 - INFO: draw=1
+2026-01-05 13:36:33.957 - INFO: start=1, length=10
+2026-01-05 13:36:33.957 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:36:33.957 - INFO: search=
+2026-01-05 13:36:35.141 - INFO: draw=1
+2026-01-05 13:36:35.142 - INFO: start=1, length=1000
+2026-01-05 13:36:35.142 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:36:35.143 - INFO: search=null
+2026-01-05 13:37:19.328 - INFO: vtahun_laporan: 2026
+2026-01-05 13:37:19.918 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:37:22.009 - INFO: draw=1
+2026-01-05 13:37:22.009 - INFO: start=1, length=10
+2026-01-05 13:37:22.009 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:37:22.009 - INFO: search=
+2026-01-05 13:37:25.151 - INFO: draw=1
+2026-01-05 13:37:25.151 - INFO: start=1, length=1000
+2026-01-05 13:37:25.151 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:37:25.151 - INFO: search=null
+2026-01-05 13:37:35.748 - INFO: draw=1
+2026-01-05 13:37:35.748 - INFO: start=1, length=1000
+2026-01-05 13:37:35.748 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:37:35.750 - INFO: search=null
+2026-01-05 13:40:22.734 - INFO: vtahun_laporan: 2026
+2026-01-05 13:40:24.630 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:40:26.440 - INFO: draw=1
+2026-01-05 13:40:26.440 - INFO: start=1, length=10
+2026-01-05 13:40:26.442 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:40:26.442 - INFO: search=
+2026-01-05 13:40:28.407 - INFO: draw=1
+2026-01-05 13:40:28.407 - INFO: start=1, length=1000
+2026-01-05 13:40:28.408 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:40:28.409 - INFO: search=null
+2026-01-05 13:40:39.195 - INFO: draw=1
+2026-01-05 13:40:39.195 - INFO: start=1, length=1000
+2026-01-05 13:40:39.195 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:40:39.196 - INFO: search=null
+2026-01-05 13:43:35.806 - INFO: vtahun_laporan: 2026
+2026-01-05 13:43:36.164 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:43:36.868 - INFO: vtahun_laporan: 2026
+2026-01-05 13:43:37.083 - INFO: Jumlah data dikembalikan: 35
+2026-01-05 13:43:39.986 - INFO: draw=1
+2026-01-05 13:43:39.987 - INFO: start=1, length=10
+2026-01-05 13:43:39.988 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:43:39.988 - INFO: search=
+2026-01-05 13:43:47.201 - INFO: draw=1
+2026-01-05 13:43:47.202 - INFO: start=1, length=1000
+2026-01-05 13:43:47.202 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:43:47.202 - INFO: search=null
+2026-01-05 13:44:14.558 - INFO: draw=2
+2026-01-05 13:44:14.558 - INFO: start=1, length=10
+2026-01-05 13:44:14.560 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:44:14.560 - INFO: search=
+2026-01-05 13:44:14.875 - INFO: draw=3
+2026-01-05 13:44:14.875 - INFO: start=1, length=10
+2026-01-05 13:44:14.875 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:44:14.875 - INFO: search=
+2026-01-05 13:44:35.446 - INFO: draw=1
+2026-01-05 13:44:35.447 - INFO: start=1, length=1000
+2026-01-05 13:44:35.447 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-05 13:44:35.447 - INFO: search=null

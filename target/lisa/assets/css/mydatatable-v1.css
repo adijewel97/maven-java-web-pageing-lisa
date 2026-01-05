@@ -1,0 +1,273 @@
+/* ========================================
+   DATATABLE CUSTOM STYLES
+   ======================================== */
+
+/* Container untuk tabel dengan scroll */
+.datatable-container {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    background-color: #ffffff;
+}
+
+/* Styling untuk tabel utama */
+.datatable-main {
+    width: 100% !important;
+    min-width: 3000px;
+    margin-bottom: 0 !important;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Header tabel sticky */
+.datatable-main thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #212529 !important;
+    color: #ffffff !important;
+    border-bottom: 2px solid #495057;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 8px;
+    white-space: nowrap;
+}
+
+/* Styling untuk body tabel */
+.datatable-main tbody td {
+    padding: 8px;
+    vertical-align: middle;
+    border-bottom: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    white-space: nowrap;
+    font-size: 0.875rem;
+}
+
+/* Hover effect untuk baris */
+.datatable-main tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Striped rows */
+.datatable-main tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.datatable-main tbody tr:nth-child(even):hover {
+    background-color: #e9ecef;
+}
+
+/* Kolom dengan lebar otomatis - hanya minimum width untuk readability */
+.datatable-main th,
+.datatable-main td {
+    min-width: 80px; /* Minimal width untuk readability */
+    width: auto; /* Biarkan auto-size berdasarkan content */
+}
+
+/* Kolom khusus yang perlu lebar minimum lebih besar */
+.col-alamat { min-width: 200px; }
+.col-nama-pelanggan { min-width: 150px; }
+.col-keterangan { min-width: 150px; }
+.col-file { min-width: 150px; }
+
+/* Kolom yang bisa lebih kecil */
+.col-no { min-width: 50px; }
+.col-tahun { min-width: 70px; }
+.col-status { min-width: 70px; }
+
+/* Styling untuk DataTables controls */
+.dataTables_wrapper {
+    padding: 0;
+}
+
+.dataTables_length,
+.dataTables_filter {
+    margin-bottom: 1rem;
+}
+
+.dataTables_length select {
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    margin: 0 0.5rem;
+}
+
+.dataTables_filter input {
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    margin-left: 0.5rem;
+}
+
+/* Pagination styling */
+.dataTables_paginate {
+    margin-top: 1rem;
+}
+
+.dataTables_paginate .paginate_button {
+    padding: 0.375rem 0.75rem;
+    margin: 0 0.125rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    background-color: #ffffff;
+    color: #495057;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+}
+
+.dataTables_paginate .paginate_button.disabled {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Info styling */
+.dataTables_info {
+    margin-top: 1rem;
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* Processing indicator */
+.dataTables_processing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -26px;
+    text-align: center;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .datatable-container {
+        max-height: 400px;
+    }
+    
+    .datatable-main {
+        min-width: 2000px;
+    }
+    
+    .datatable-main thead th {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+    }
+    
+    .datatable-main tbody td {
+        padding: 6px 4px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Custom scrollbar untuk webkit browsers */
+.datatable-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.datatable-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.datatable-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.datatable-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Loading animation */
+.datatable-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #6c757d;
+}
+
+.datatable-loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Button styling untuk export */
+.btn-export {
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Form controls spacing */
+.form-monitoring {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-monitoring .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.form-monitoring .form-select {
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.form-monitoring .form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Title styling */
+.page-title {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+}
+
+.section-title {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
