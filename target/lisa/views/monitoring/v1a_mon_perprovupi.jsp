@@ -1212,29 +1212,27 @@
         }
 
         /* =========================================================
-        * EXPORT EXCEL
+        * EXPORT EXCEL DETAIL
         * ========================================================= */
         $('#btnExportMonDftAllExcelOneSheet').on('click', async function () {
-
             const btn = $(this);
             $('#spinnerOverlay').show();
             btn.prop('disabled', true).text('Memuat...');
 
             try {
-
                 /* ================= PARAM ================= */
                 const {
-                    vtahun_laporan,
-                    vkd_prov,
-                    vinfolabel
-                } = detailFilterParams;
+                    vtahun_laporan = '',
+                    vkd_prov = '',
+                    vinfolabel = ''
+                } = detailFilterParams || {};
 
-                if (!vtahun_laporan || !vinfolabel) {
+                if (!vtahun_laporan || !vinfolabel || !vkd_prov) {
                     alert('Filter belum lengkap');
                     return;
                 }
 
-                console.log( "vtahun_laporan  vinfolabel : " +vtahun_laporan+" = "+vinfolabel);
+                console.log("PARAM:", { vtahun_laporan, vinfolabel, vkd_prov });
 
                 /* ================= AMBIL DATA ================= */
                 const pageSize = 1000;
@@ -1246,6 +1244,7 @@
                     const params = new URLSearchParams({
                         act: 'detailDatav3',
                         vtahun_laporan,
+                        vkd_prov,
                         vinfolabel,
                         start,
                         length: pageSize,
@@ -1258,11 +1257,14 @@
                         body: params.toString()
                     });
 
+                    if (!res.ok) throw new Error(`Server error: ${res.status}`);
                     const json = await res.json();
+
                     if (!json.data || !json.data.length) break;
 
                     dataAll.push(...json.data);
                     if (json.data.length < pageSize) break;
+
                     start += pageSize;
                 }
 
@@ -1273,13 +1275,9 @@
 
                 /* ================= SORT DATA ================= */
                 const groupOrder = ['TIANG', 'KABEL', 'AKSESORIS'];
-
                 dataAll.sort((a, b) => {
-                    const ga = a.MATERIAL_GROUP || '';
-                    const gb = b.MATERIAL_GROUP || '';
-
-                    const indexA = groupOrder.indexOf(ga) !== -1 ? groupOrder.indexOf(ga) : groupOrder.length;
-                    const indexB = groupOrder.indexOf(gb) !== -1 ? groupOrder.indexOf(gb) : groupOrder.length;
+                    const indexA = groupOrder.indexOf(a.MATERIAL_GROUP || '') !== -1 ? groupOrder.indexOf(a.MATERIAL_GROUP) : groupOrder.length;
+                    const indexB = groupOrder.indexOf(b.MATERIAL_GROUP || '') !== -1 ? groupOrder.indexOf(b.MATERIAL_GROUP) : groupOrder.length;
 
                     if (indexA !== indexB) return indexA - indexB;
 
@@ -1293,31 +1291,15 @@
                 workbook.created = new Date();
 
                 const ws = workbook.addWorksheet('DETAIL', { properties: { outlineLevelRow: true } });
-
-                ws.views = [{
-                    showOutlineSymbols: true,
-                    state: 'frozen',
-                    ySplit: 7
-                }];
+                ws.views = [{ showOutlineSymbols: true, state: 'frozen', ySplit: 7 }];
 
                 /* ================= STYLE HELPER ================= */
                 function styleRow(row, startCol, endCol, opt = {}) {
                     for (let c = startCol; c <= endCol; c++) {
                         const cell = row.getCell(c);
-                        cell.border = {
-                            top: { style: 'thin' },
-                            left: { style: 'thin' },
-                            bottom: { style: 'thin' },
-                            right: { style: 'thin' }
-                        };
+                        cell.border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
                         if (opt.bold) cell.font = { bold: true };
-                        if (opt.fill) {
-                            cell.fill = {
-                                type: 'pattern',
-                                pattern: 'solid',
-                                fgColor: { argb: opt.fill }
-                            };
-                        }
+                        if (opt.fill) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: opt.fill } };
                     }
                 }
 
@@ -1346,40 +1328,30 @@
                 styleRow(header, 1, 29, { bold: true, fill: 'E0E0E0' });
 
                 /* ================= DATA LOOP ================= */
-                let no = 1;
-                let lastKontrak = null;
-                let lastGroup = null;
-                let subtotalGroup = 0;
+                let no = 1, lastKontrak = null, lastGroup = null, subtotalGroup = 0;
 
                 for (const d of dataAll) {
                     const kontrak = d.NOMOR_KONTRAK_RINCI || '';
                     const group = d.MATERIAL_GROUP || '';
                     const qty = Number(d.JUMLAH_MDU) || 0;
 
-                    /* === GANTI KONTRAK === */
+                    /* GANTI KONTRAK */
                     if (lastKontrak && kontrak !== lastKontrak) {
-                        /* SUBTOTAL GROUP SEBELUM KONTRAK BERUBAH */
                         if (lastGroup) {
-                            const rSub = ws.addRow([
-                                'SUBTOTAL ' + lastGroup, '', '', '', '', '', '', '', subtotalGroup
-                            ]);
+                            const rSub = ws.addRow([`SUBTOTAL ${lastGroup}`, '', '', '', '', '', '', '', subtotalGroup]);
                             for (let c = 2; c <= 29; c++) if (c !== 9) rSub.getCell(c).value = '';
                             styleRow(rSub, 1, 29, { bold: true, fill: 'FFF7CC' });
                             subtotalGroup = 0;
                         }
-
-                        /* END KONTRAK */
-                        const rEnd = ws.addRow(['END KONTRAK RINCI : ' + lastKontrak]);
+                        const rEnd = ws.addRow([`END KONTRAK RINCI : ${lastKontrak}`]);
                         ws.mergeCells(rEnd.number, 1, rEnd.number, 29);
                         styleRow(rEnd, 1, 29, { bold: true, fill: 'FFE0B2' });
                         rEnd.outlineLevel = 0;
-
                         lastGroup = null;
                     }
 
-                    /* START KONTRAK */
                     if (kontrak !== lastKontrak) {
-                        const rStart = ws.addRow(['START KONTRAK RINCI : ' + kontrak]);
+                        const rStart = ws.addRow([`START KONTRAK RINCI : ${kontrak}`]);
                         ws.mergeCells(rStart.number, 1, rStart.number, 29);
                         styleRow(rStart, 1, 29, { bold: true, fill: 'E3F2FD' });
                         rStart.outlineLevel = 0;
@@ -1387,9 +1359,7 @@
 
                     /* GANTI GROUP */
                     if (lastGroup && group !== lastGroup) {
-                        const rSub = ws.addRow([
-                            'SUBTOTAL ' + lastGroup, '', '', '', '', '', '', '', subtotalGroup
-                        ]);
+                        const rSub = ws.addRow([`SUBTOTAL ${lastGroup}`, '', '', '', '', '', '', '', subtotalGroup]);
                         for (let c = 2; c <= 29; c++) if (c !== 9) rSub.getCell(c).value = '';
                         styleRow(rSub, 1, 29, { bold: true, fill: 'FFF7CC' });
                         subtotalGroup = 0;
@@ -1414,29 +1384,24 @@
                     lastKontrak = kontrak;
                 }
 
-                /* SUBTOTAL TERAKHIR */
+                /* SUBTOTAL & END KONTRAK TERAKHIR */
                 if (lastGroup) {
-                    const rSub = ws.addRow([
-                        'SUBTOTAL ' + lastGroup, '', '', '', '', '', '', '', subtotalGroup
-                    ]);
+                    const rSub = ws.addRow([`SUBTOTAL ${lastGroup}`, '', '', '', '', '', '', '', subtotalGroup]);
                     for (let c = 2; c <= 29; c++) if (c !== 9) rSub.getCell(c).value = '';
                     styleRow(rSub, 1, 29, { bold: true, fill: 'FFF7CC' });
                 }
 
-                /* END KONTRAK TERAKHIR */
                 if (lastKontrak) {
-                    const rEnd = ws.addRow(['END KONTRAK RINCI : ' + lastKontrak]);
+                    const rEnd = ws.addRow([`END KONTRAK RINCI : ${lastKontrak}`]);
                     ws.mergeCells(rEnd.number, 1, rEnd.number, 29);
                     styleRow(rEnd, 1, 29, { bold: true, fill: 'FFE0B2' });
                     rEnd.outlineLevel = 0;
                 }
 
                 /* ================= SAVE ================= */
+                const fileName = "DETAIL_"+vtahun_laporan+"_"+vkd_prov+"_"+vinfolabel+".xlsx";
                 const buffer = await workbook.xlsx.writeBuffer();
-                saveAs(
-                    new Blob([buffer]),
-                    'DETAIL_' + vtahun_laporan + '_' + vinfolabel + '.xlsx'
-                );
+                saveAs(new Blob([buffer]), fileName);
 
             } catch (e) {
                 console.error(e);

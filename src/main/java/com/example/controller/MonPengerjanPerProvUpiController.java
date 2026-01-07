@@ -49,7 +49,7 @@ public class MonPengerjanPerProvUpiController extends HttpServlet {
         }
 
         if ("detailDatav3".equalsIgnoreCase(act)) {
-            handleGetDetailDatav3(req, resp);
+            handleGetDetailDatav2(req, resp);
             return;
         }   
 
@@ -184,7 +184,7 @@ public class MonPengerjanPerProvUpiController extends HttpServlet {
     }
 
     // -- v3 (SUDAH SESUAI DataTableResult)
-    private void handleGetDetailDatav3(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void handleGetDetailDatav2(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         int draw = 1;
         try {
@@ -223,7 +223,7 @@ public class MonPengerjanPerProvUpiController extends HttpServlet {
         List<String> pesanOutput = new ArrayList<>();
 
         /* ================= CALL SERVICE ================= */
-        DataTableDetailPgsResult result = service.getDataMDftPerUpiv3(
+        DataTableDetailPgsResult result = service.getDataMDftPerUpiv2(
                 start,
                 length,
                 sortBy,

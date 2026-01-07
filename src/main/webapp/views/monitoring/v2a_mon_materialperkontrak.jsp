@@ -297,40 +297,38 @@
             <form id="form-monitoring">
                 <div class="row align-items-end g-3 mb-2">
                     <div class="col-md-4 col-lg-4">
-                        <label for="jenis_laporan" class="form-label">Provinsi :</label>
-                        <select id="jenis_laporan" class="form-control"> 
-                            <option value="provinsi">PROVINSI</option>
-                            <option value="upi">UPI</option>
+                        <label for="tahun_laporan" class="form-label">Tahun Laporan :</label>
+                        <select id="tahun_laporan" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="row align-items-end g-3 mb-2">
+                    <div class="col-md-4 col-lg-4">
+                        <label for="vc_kdprov" class="form-label">Provinsi :</label>
+                        <select id="vc_kdprov" class="form-control"> 
+                            <option value="">-- Pilih Provinsi --</option>'
                         </select>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <label for="jenis_laporan" class="form-label">Kabupaten :</label>
-                        <select id="jenis_laporan" class="form-control"> 
-                            <option value="provinsi">PROVINSI</option>
-                            <option value="upi">UPI</option>
+                        <label for="vc_kdkab" class="form-label">Kabupaten :</label>
+                        <select id="vc_kdkab" class="form-control" disabled="true"> 
+                             <option value="">-- Pilih Kabupaten/Kota --</option>'
                         </select>
                     </div>
 
                     <div class="col-md-4 col-lg-4">
-                        <label for="jenis_laporan" class="form-label">Kecamatan :</label>
-                        <select id="jenis_laporan" class="form-control"> 
-                            <option value="provinsi">PROVINSI</option>
-                            <option value="upi">UPI</option>
+                        <label for="vc_kdkec" class="form-label">Kecamatan :</label>
+                        <select id="vc_kdkec" class="form-control" disabled="true"> 
+                           <option value="">-- Pilih Kecamatan --</option>'
                         </select>
                     </div>
 
                      <div class="col-md-4 col-lg-4">
-                        <label for="jenis_laporan" class="form-label">Desa/Kelurahan :</label>
-                        <select id="jenis_laporan" class="form-control"> 
-                            <option value="provinsi">PROVINSI</option>
-                            <option value="upi">UPI</option>
+                        <label for="vc_kdkel" class="form-label">Desa/Kelurahan :</label>
+                        <select id="vc_kdkel" class="form-control" disabled="true"> 
+                             <option value="">-- Pilih Desa/Kelurahan --</option>'
                         </select>
                     </div>
-                    <div class="col-md-4 col-lg-4">
-                        <label for="tahun_laporan" class="form-label">Tahun Laporan :</label>
-                        <select id="tahun_laporan" class="form-control"></select>
-                    </div>
-
+                    
                     <!-- Tombol Tampilkan -->
                     <div class="col-md-2">
                         <label class="form-label d-none d-md-block">&nbsp;</label> <!-- Spacer agar sejajar -->
@@ -458,6 +456,230 @@
                 maximumFractionDigits: fractionDigits
             });
         }
+
+        // -------------------------
+        // ) Init: load Master Provinsi / Kabpupaten
+        // -------------------------
+        // Begin Main ------------
+        loadMstProvinsi();  
+
+        document.getElementById('vc_kdprov').addEventListener('change', function () {
+            const vkdprov = this.value;
+
+            if (!vkdprov) {
+                // jika pilih "-- Pilih Provinsi --"
+                return;
+            }
+            const kabSelect  = document.getElementById('vc_kdkab');
+            const kecSelect  = document.getElementById('vc_kdkec');
+            const kelSelect  = document.getElementById('vc_kdkel');
+            kabSelect.disabled = false;
+            kecSelect.disabled = true;
+            kecSelect.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
+            kelSelect.disabled = true;
+            kelSelect.innerHTML = '<option value="">-- Pilih Desa/Kelurahan --</option>';
+            loadMstKabupatenKota(vkdprov);
+        });
+
+        document.getElementById('vc_kdkab').addEventListener('change', function () {
+            const vkdprov = document.getElementById('vc_kdprov').value; // ⬅️ INI
+            const vkdkab  = this.value;
+
+            if (!vkdprov || !vkdkab) {
+                return;
+            }
+
+            const kabSelect = document.getElementById('vc_kdkec');
+            const kelSelect  = document.getElementById('vc_kdkel');
+            kabSelect.disabled = false;
+            kabSelect.disabled = false;
+            kelSelect.disabled = true;
+            kelSelect.innerHTML = '<option value="">-- Pilih Desa/Kelurahan --</option>';
+
+            loadMstKecamatan(vkdprov, vkdkab);
+        });
+
+        document.getElementById('vc_kdkec').addEventListener('change', function () {
+            const vkdprov   = document.getElementById('vc_kdprov').value;
+            const vkdkab    = document.getElementById('vc_kdkab').value;
+            const vkdkec    = this.value;
+
+            if (!vkdprov || !vkdkab || !vkdkec) {
+                return;
+            }
+
+            const kelSelect = document.getElementById('vc_kdkel');
+            kelSelect.disabled = false;
+
+            loadMstDesaKelurahan(vkdprov, vkdkab, vkdkec);
+        });
+        
+        // END Main ------------
+
+        //B.1 Get MstProvinsi
+        async function loadMstProvinsi() {
+            console.log("🔄 Memuat daftar Provinsi...");
+
+            const params = new URLSearchParams();
+            params.append('act', 'getMstProvinsi');
+
+            try {
+                const res = await fetch(getContextPath() + '/mst-global', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                });
+
+                if (!res.ok) throw new Error("HTTP Error " + res.status);
+
+                const json = await res.json();
+
+                const provSelect = document.getElementById('vc_kdprov');
+                const kabSelect  = document.getElementById('vc_kdkab');
+
+                // reset provinsi
+                provSelect.innerHTML = '<option value="">-- Pilih Provinsi --</option>';
+
+                if (json.status === 'success' && Array.isArray(json.data)) {
+
+                    json.data.forEach(diswil => {
+                        const opt = document.createElement('option');
+                        opt.value = diswil.KODE;
+                        opt.textContent = diswil.PROVINSI;
+                        provSelect.appendChild(opt);
+                    });
+
+                    // ⬅️ INI KUNCI PERBAIKAN
+                    kabSelect.disabled = true;
+
+                    console.log("✅ Provinsi berhasil dimuat:", json.data.length, "data");
+                } else {
+                    const opt = document.createElement('option');
+                    opt.textContent = "Tidak ada data Provinsi";
+                    provSelect.appendChild(opt);
+                }
+            } catch (err) {
+                console.error("❌ Error JS:", err.message);
+            }
+        }
+
+        //B.2 Get MstKabupatenKota
+        async function loadMstKabupatenKota(vkdprov) {
+            console.log("🔄 Memuat daftar Kabupaten/Kota...");
+
+            const params = new URLSearchParams();
+            params.append('act', 'getMstKabuptenKota');
+            params.append('vkdprov', vkdprov);
+
+            try {
+                const res = await fetch(getContextPath() + '/mst-global', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                });
+                if (!res.ok) throw new Error("HTTP Error " + res.status);
+                const json = await res.json();
+
+                const select = document.getElementById('vc_kdkab');
+                select.innerHTML = '<option value="">-- Pilih Kabupaten/Kota --</option>';
+
+                if (json.status === 'success' && Array.isArray(json.data)) {
+                    json.data.forEach(diswil => {
+                        const opt = document.createElement('option');
+                        opt.value = diswil.KODE;
+                        opt.textContent = diswil.KABUPATEN;
+                        select.appendChild(opt);
+                    });
+                    console.log("✅ Kabupaten/Kota berhasil dimuat:", json.data.length, "data");
+                } else {
+                    const opt = document.createElement('option');
+                    opt.textContent = "Tidak ada data DISWIL";
+                    select.appendChild(opt);
+                }
+            } catch (err) {
+                console.error("❌ Error JS:", err.message);
+            }
+        }
+
+        //B.3 Get MstKecamatan
+        async function loadMstKecamatan(vkdprov, vkdkab) {
+            console.log("🔄 Memuat daftar Kecamatan...");
+
+            const params = new URLSearchParams();
+            params.append('act', 'GetMstKecamatan');
+            params.append('vkdprov', vkdprov);
+            params.append('vkdkab', vkdkab);
+
+            try {
+                const res = await fetch(getContextPath() + '/mst-global', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                });
+                if (!res.ok) throw new Error("HTTP Error " + res.status);
+                const json = await res.json();
+
+                const select = document.getElementById('vc_kdkec');
+                select.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
+
+                if (json.status === 'success' && Array.isArray(json.data)) {
+                    json.data.forEach(diswil => {
+                        const opt = document.createElement('option');
+                        opt.value = diswil.KODE;
+                        opt.textContent = diswil.KECAMATAN;
+                        select.appendChild(opt);
+                    });
+                    console.log("✅ Kecamatan berhasil dimuat:", json.data.length, "data");
+                } else {
+                    const opt = document.createElement('option');
+                    opt.textContent = "Tidak ada data DISWIL";
+                    select.appendChild(opt);
+                }
+            } catch (err) {
+                console.error("❌ Error JS:", err.message);
+            }
+        }
+
+         //B.4 Get MstDesaKelurahan
+        async function loadMstDesaKelurahan(vkdprov, vkdkab, vkdkec) {
+            console.log("🔄 Memuat daftar Kecamatan...");
+
+            const params = new URLSearchParams();
+            params.append('act', 'GetMstDesaKelurahan');
+            params.append('vkdprov', vkdprov);
+            params.append('vkdkab', vkdkab);
+            params.append('vkdkec', vkdkec);
+
+            try {
+                const res = await fetch(getContextPath() + '/mst-global', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                });
+                if (!res.ok) throw new Error("HTTP Error " + res.status);
+                const json = await res.json();
+
+                const select = document.getElementById('vc_kdkel');
+                select.innerHTML = '<option value="">-- Pilih Desa/Kelurahan --</option>';
+
+                if (json.status === 'success' && Array.isArray(json.data)) {
+                    json.data.forEach(diswil => {
+                        const opt = document.createElement('option');
+                        opt.value = diswil.KODE;
+                        opt.textContent = diswil.KELURAHAN;
+                        select.appendChild(opt);
+                    });
+                    console.log("✅ Kecamatan berhasil dimuat:", json.data.length, "data");
+                } else {
+                    const opt = document.createElement('option');
+                    opt.textContent = "Tidak ada data DISWIL";
+                    select.appendChild(opt);
+                }
+            } catch (err) {
+                console.error("❌ Error JS:", err.message);
+            }
+        }
+
 
         // ---------------------------------------------------------------------------------------------
         // 1A-1) Tampilkan monitoring Rekap

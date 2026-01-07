@@ -90,7 +90,7 @@ public class MonPengerjaanPerProvUpiService {
         logger.info("Memulai panggilan prosedur monlap_mivfalg_plnvsbank_uiw_pgs Oracle dengan parameter TH BLN: " + vtahun_laporan);
         List<Map<String, Object>> result = new ArrayList<>();
        
-        String sql = "{call LISDES.PKG_MONLAP_LISDES.DFT_PENGERJAAN_LISDES_PROV_PGS(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{call LISDES.PKG_MONLAP_LISDES.DFT_PENGERJAAN_LISDES_PROV_PGSV2(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
         // String sql = "{call LISDES.PKG_MONLAP_LISDES.DFT_PENGERJAAN_LISDES_PROV_PGS(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
        
         logger.info("Memulai panggilan prosedur Oracle Daftar : "+ sql );
@@ -173,7 +173,7 @@ public class MonPengerjaanPerProvUpiService {
         return result;
     }
 
-    public DataTableDetailPgsResult getDataMDftPerUpiv3(
+    public DataTableDetailPgsResult getDataMDftPerUpiv2(
             int start,
             int length,
             String sortBy,
@@ -191,7 +191,7 @@ public class MonPengerjaanPerProvUpiService {
         List<Map<String, Object>> metaList = new ArrayList<>();
         int totalItems = 0;
 
-        String sql = "{call LISDES.PKG_MONLAP_LISDES.DFT_PENGERJAAN_LISDES_PROV_PGSV3(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String sql = "{call LISDES.PKG_MONLAP_LISDES.DFT_PENGERJAAN_LISDES_PROV_PGSV2(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
 
         try (Connection conn = dataSource.getConnection();
             CallableStatement stmt = conn.prepareCall(sql)) {

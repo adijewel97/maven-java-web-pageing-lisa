@@ -1399,7 +1399,7 @@
                 }
 
                 /* ================= SAVE ================= */
-                const fileName = `DETAIL_${vtahun_laporan}_${vkd_prov}_${vinfolabel}.xlsx`;
+                const fileName = "DETAIL_"+vtahun_laporan+"_"+vkd_prov+"_"+vinfolabel+".xlsx";
                 const buffer = await workbook.xlsx.writeBuffer();
                 saveAs(new Blob([buffer]), fileName);
 
