@@ -243,36 +243,15 @@
                 <thead>
                 <tr>
                     <th>NO</th>
-                    <!-- <th>TOTAL_COUNT</th> -->
-                    <th>INFOLABEL</th>                    
                     <th>NOMOR_KONTRAK_RINCI</th>
-                    <th>TRANSMISI</th>
-                    <th>MATERIAL_GROUP_ID</th>
+                    <th>KATEGORI_PEMBANGUNAN</th>
                     <th>MATERIAL_GROUP</th>
                     <th>KODE_MATERIAL</th>
+                    <th>PENGGUNAAN</th>
                     <th>NAMA_MATERIAL</th>
-                    <th>JUMLAH_MDU</th>
+                    <th>VOLUME_RENCANA</th>
+                    <th>VOLUME_TERPASANG</th>
                     <th>SATUAN</th>
-                    <th>TAHUN</th>
-                    <th>KD_PROV</th>
-                    <th>PROVINSI</th>
-                    <th>KD_KAB</th>
-                    <th>KABUPATENKOTA</th>
-                    <th>KD_KEC</th>
-                    <th>KECAMATAN</th>
-                    <th>KD_KEL</th>
-                    <th>DESAKELURAHAN</th>
-                    <th>UNITUPI</th>
-                    <th>NAMA_UNITUPI</th>
-                    <th>UNITAP</th>
-                    <th>NAMA_UNITAP</th>
-                    <th>UNITUP</th>
-                    <th>NAMA_UNITUP</th>
-                    <th>ID_PERENCANAAN</th>
-                    <th>NOMOR_KONTRAK</th>
-                    <th>KATEGORI_PEMBANGUNAN</th>
-                    <th>KODE_PEMBANGUNAN</th>
-                    <!-- <th>ROW_NUMBER</th> -->
                 </tr>
                 </thead>
             <tbody>
@@ -374,37 +353,28 @@
                         </thead> -->
                         <thead class="hdr-yellow">
                             <tr>
-                                <th rowspan="2" class="hdr-main">NO</th>
-                                <th rowspan="2" class="hdr-main">TAHUN</th>
-                                <th rowspan="2" class="hdr-main">KD_PROV</th>
-                                <th rowspan="2" class="hdr-main">PROVINSI</th>
-
-                                <th colspan="3" class="hdr-rencana">RENCANA</th>
-                                <th colspan="3" class="hdr-wo">WORK ORDER</th>
-                                <th colspan="3" class="hdr-wo">PROSES BANGSANG</th>
-                                <th colspan="3" class="hdr-wo">FINAL BANGSANG</th>
-                                <th colspan="3" class="hdr-wo">PORSENTASE (%)</th>
-                            </tr>
-                            <tr>
-                                <th class="hdr-rencana-sub">JTR</th>
-                                <th class="hdr-rencana-sub">JTM</th>
-                                <th class="hdr-rencana-sub">GRD</th>
-
-                                <th class="hdr-wo-sub">JTR</th>
-                                <th class="hdr-wo-sub">JTM</th>
-                                <th class="hdr-wo-sub">GRD</th>
-
-                                <th class="hdr-wo-sub">JTR</th>
-                                <th class="hdr-wo-sub">JTM</th>
-                                <th class="hdr-wo-sub">GRD</th>
-
-                                <th class="hdr-wo-sub">JTR</th>
-                                <th class="hdr-wo-sub">JTM</th>
-                                <th class="hdr-wo-sub">GRD</th>
-
-                                <th class="hdr-wo-sub">JTR</th>
-                                <th class="hdr-wo-sub">JTM</th>
-                                <th class="hdr-wo-sub">GRD</th>
+                                <th>NOMOR</th>
+                                <th>NOMOR_KONTRAK_RINCI</th>
+                                <!-- <th>KD_PROV</th> -->
+                                <th>PROVINSI</th>
+                                <!-- <th>KD_KAB</th> -->
+                                <th>KABUPATENKOTA</th>
+                                <!-- <th>KD_KEC</th> -->
+                                <th>KECAMATAN</th>
+                                <!-- <th>KD_KEL</th> -->
+                                <th>DESAKELURAHAN</th>
+                                <th>ID_WO_PETUGAS</th>
+                                <th>LONGITUDE_LOKASI</th>
+                                <th>LATITUDE_LOKASI</th>
+                                <th>TGL_SELESAI</th>
+                                <th>STATUS</th>
+                                <!-- <th>PATH_FOTO1</th>
+                                <th>PATH_FOTO2</th>
+                                <th>PATH_FOTO3</th>
+                                <th>PATH_FOTO4</th>
+                                <th>PATH_FOTO5</th>
+                                <th>PATH_FOTO6</th>
+                                <th>PATH_FOTO7</th> -->
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -693,10 +663,14 @@
             searching: false, 
             autoWidth: false,
             ajax: {
-                url:  getContextPath() + '/mon-pengerjaan-perprovupi',
+                url:  getContextPath() + '/mon-pengerjaan-perkontrak',
                 type: 'POST',
                 data: function (d) {
-                    d.vtahun_laporan = $('#tahun_laporan').val();// pastikan pakai '#'!
+                    d.vtahun_laporan    = $('#tahun_laporan').val();// pastikan pakai '#'!
+                    d.vkdprov           = $('#vc_kdprov').val();
+                    d.vkdkab            = $('#vc_kdkab').val();
+                    d.vkdkec            = $('#vc_kdkec').val();
+                    d.vkdkel            = $('#vc_kdkel').val();
                 }
             },
             columns: [
@@ -710,25 +684,35 @@
                         }
                     }
                 },
-                { data: 'TAHUN',  defaultContent: '' },
-                { data: 'KD_PROV',  defaultContent: '' },
-                { data: 'PROVINSI',  defaultContent: '' },
-                // kolom numeric diformat pakai formatNumber
-                { data: 'JTR_RENCANA', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTM_RENCANA', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'GRD_RENCANA', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTR_WO', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTM_WO', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'GRD_WO', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTR_PROGRES', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTM_PROGRES', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'GRD_PROGRES', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTR_FINAL', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTM_FINAL', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'GRD_FINAL', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTR_PROSEN', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'JTM_PROSEN', defaultContent: '', render: d => formatNumber(d, 0) },
-                { data: 'GRD_PROSEN', defaultContent: '', render: d => formatNumber(d, 0) }
+                {data:'NOMOR_KONTRAK_RINCI',defaultContent:''},
+                // {data:'KD_PROV',defaultContent:''},
+                {data:'PROVINSI',defaultContent:'', render: function(data, type, row){
+                        return (row.KD_PROV ?? '') + ' - ' + (row.PROVINSI ?? '');
+                }},
+                // {data:'KD_KAB',defaultContent:''},
+                {data:null,defaultContent:'', render: function(data, type, row){
+                        return (row.KD_KAB ?? '') + ' - ' + (row.KABUPATENKOTA ?? '');
+                }},
+                // {data:'KD_KEC',defaultContent:''},
+                {data:null,defaultContent:'', render: function(data, type, row){
+                        return (row.KD_KEC ?? '') + ' - ' + (row.KECAMATAN ?? '');
+                }},
+                // {data:'KD_KEL',defaultContent:''},
+                {data:null,defaultContent:'', render: function(data, type, row){
+                        return (row.KD_KEL ?? '') + ' - ' + (row.DESAKELURAHAN ?? '');
+                }},
+                {data:'ID_WO_PETUGAS',defaultContent:''},
+                {data:'LONGITUDE_LOKASI',defaultContent:''},
+                {data:'LATITUDE_LOKASI',defaultContent:''},
+                {data:'TGL_SELESAI',defaultContent:''},
+                {data:'STATUS',defaultContent:''},
+                // {data:'PATH_FOTO1',defaultContent:''},
+                // {data:'PATH_FOTO2',defaultContent:''},
+                // {data:'PATH_FOTO3',defaultContent:''},
+                // {data:'PATH_FOTO4',defaultContent:''},
+                // {data:'PATH_FOTO5',defaultContent:''},
+                // {data:'PATH_FOTO6',defaultContent:''},
+                // {data:'PATH_FOTO7',defaultContent:''}
             ],
 
             drawCallback: function () {
@@ -739,13 +723,13 @@
                 { targets: 0, className: 'dt-body-right', orderable: false, width: '5px' },      
                 { targets: 1, className: 'dt-body-center', width: '5px' },                         
                 { targets: 2, className: 'dt-body-center', width: '5px' },                       
-                { targets: 3, className: 'dt-body-center', width: '50px' },                         
-                { targets: 4, className: 'dt-body-center', width: '50px' },                        
-                { targets: 5, className: 'dt-body-center', width: '50px' },                        
-                { targets: 6, className: 'dt-body-center', width: '50px' },   
-                { targets: 7, className: 'dt-body-center', width: '50px' },                        
-                { targets: 8, className: 'dt-body-center', width: '50px' },                        
-                { targets: 9, className: 'dt-body-center', width: '50px' },                         
+                // { targets: 3, className: 'dt-body-center', width: '50px' },                         
+                // { targets: 4, className: 'dt-body-center', width: '50px' },                        
+                // { targets: 5, className: 'dt-body-center', width: '50px' },                        
+                // { targets: 6, className: 'dt-body-center', width: '50px' },   
+                // { targets: 7, className: 'dt-body-center', width: '50px' },                        
+                // { targets: 8, className: 'dt-body-center', width: '50px' },                        
+                // { targets: 9, className: 'dt-body-center', width: '50px' },                         
             ],
             createdRow: function (row, data, dataIndex) {
             //    if (data.URUT == 5) {
@@ -763,15 +747,12 @@
                     if (!columnName) return;
 
                     const cellValue = data[columnName];
-                    const allowedColumns = ['JTR_RENCANA', 'JTM_RENCANA', 'GRD_RENCANA',
-                                            'JTR_WO', 'JTM_WO', 'GRD_WO'             
-                                           ];
+                    const allowedColumns = ['NOMOR_KONTRAK_RINCI' ];
 
                     if (
                         allowedColumns.includes(columnName) &&
                         typeof cellValue === 'string' &&
-                        cellValue.trim() !== '' &&
-                        (data.URUT == 1)
+                        cellValue.trim() !== '' 
                     ) {
                         // ===== RESET STYLE & CLICK (WAJIB) =====
                         $(this)
@@ -783,26 +764,6 @@
                                 'font-weight': 'bold',
                             })
                             .off('click');
-
-                        // ==============================
-                        // Normalisasi nilai kolom
-                        // ==============================
-                        let valT = 0, valK = 0, valA = 0;
-
-                        // Versi 1: T=..|K=..|A=..
-                        if (cellValue.includes('T=')) {
-                            const t = cellValue.match(/T=\s*(\d+)/);
-                            const k = cellValue.match(/K=\s*(\d+)/);
-                            const a = cellValue.match(/A=\s*(\d+)/);
-
-                            valT = t ? parseInt(t[1], 10) : 0;
-                            valK = k ? parseInt(k[1], 10) : 0;
-                            valA = a ? parseInt(a[1], 10) : 0;
-                        }
-                        // Versi 2: hanya angka → Tiang
-                        else if (!isNaN(cellValue)) {
-                            valT = parseInt(cellValue, 10);
-                        }
 
                         // ==============================
                         // Reset style & click (WAJIB)
@@ -817,13 +778,6 @@
                             .off('click');
 
                         // ==============================
-                        // Jika SEMUA 0 → STOP
-                        // ==============================
-                        if (valT === 0 && valK === 0 && valA === 0) {
-                            return;
-                        }
-
-                        // ==============================
                         // Aktifkan underline & modal
                         // ==============================
                         $(this).css({
@@ -834,13 +788,15 @@
                         }).on('click', function () {
 
                             $('#xtahun_laporan').val(data.TAHUN);
-                            $('#xkd_dist').val(data.KD_DIST);
+                            $('#xkd_prov').val(data.KD_PROV);
 
                             detailFilterParams = {
-                                vtahun_laporan: data.TAHUN,
-                                vkd_prov: data.KD_PROV,
-                                vnama_prov: data.PROVINSI,
-                                vinfolabel: columnName
+                                vtahun_laporan     : data.TAHUN ?? detailFilterParams.vtahun_laporan,
+                                vkdprov            : data.KD_PROV,
+                                vkdkab             : data.KD_KAB,
+                                vkdkec             : data.KD_KEC,
+                                vkdkel             : data.KD_KEL,
+                                vnomor_kontrak_rinci: data.NOMOR_KONTRAK_RINCI
                             };
 
                             console.log('Updated filter params:', detailFilterParams);
@@ -907,8 +863,8 @@
         });
 
         $('#btnTampil').on('click', function () {
-            if (!$('#tahun_laporan').val()) {
-                alert("Silakan pilih Tahun Laporan terlebih dahulu!");
+            if ((!$('#tahun_laporan').val()) || (!$('#vc_kdprov').val())) {
+                alert("Silakan pilih Tahun Laporan dan Provinsi terlebih dahulu!");
                 return;
             }
 
@@ -1110,7 +1066,7 @@
 
         $('#dataModal').on('shown.bs.modal', function () {
 
-            $('#dataModalLabel').text('Detail Data : ' + detailFilterParams.vinfolabel);
+            $('#dataModalLabel').text('Detail Data : ' + detailFilterParams.vnomor_kontrak_rinci);
 
             // 🔥 Jika tabel sudah ada → reload saja
             if (detailTable) {
@@ -1124,13 +1080,16 @@
                 serverSide: true,
                 scrollX: true,
                 ajax: {
-                    url: getContextPath() + '/mon-pengerjaan-perprovupi',
+                    url: getContextPath() + '/mon-pengerjaan-perkontrak',
                     type: 'POST',
                     data: function (d) {
                         d.act = 'detailData';
                         d.vtahun_laporan = detailFilterParams.vtahun_laporan;
-                        d.vkd_prov = detailFilterParams.vkd_prov;
-                        d.vinfolabel = detailFilterParams.vinfolabel;
+                        d.vkdprov = detailFilterParams.vkdprov;
+                        d.vkdkab  = detailFilterParams.vkdkab;
+                        d.vkdkec  = detailFilterParams.vkdkec;
+                        d.vkdkel  = detailFilterParams.vkdkel;
+                        d.vnomor_kontrak_rinci  = detailFilterParams.vnomor_kontrak_rinci;
                         console.log('Kirim data ke server:', d);
                     },
                     dataSrc: function (json) {
@@ -1140,238 +1099,16 @@
                 },
                 columns: [
                     { data: null, orderable: false, className: 'text-center', render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
-                    { data: 'INFOLABEL' },
-                    { data: 'NOMOR_KONTRAK_RINCI' },
-                    { data: 'KATEGORI_PEMBANGUNAN' },
-                    { data: 'TRANSMISI' },
-                    { data: 'MATERIAL_GROUP' },
-                    { data: 'KODE_MATERIAL' },
-                    { data: 'NAMA_MATERIAL' },
-                    { data: 'JUMLAH_MDU', defaultContent: '', render: d => formatNumber(d, 0) },
-                    { data: 'SATUAN' },
-                    { data: 'TAHUN' },
-                    { data: 'KD_PROV' },
-                    { data: 'PROVINSI' },
-                    { data: 'KD_KAB' },
-                    { data: 'KABUPATENKOTA' },
-                    { data: 'KD_KEC' },
-                    { data: 'KECAMATAN' },
-                    { data: 'KD_KEL' },
-                    { data: 'DESAKELURAHAN' },
-                    { data: 'UNITUPI' },
-                    { data: 'NAMA_UNITUPI' },
-                    { data: 'UNITAP' },
-                    { data: 'NAMA_UNITAP' },
-                    { data: 'UNITUP' },
-                    { data: 'NAMA_UNITUP' },
-                    { data: 'ID_PERENCANAAN' },
-                    { data: 'NOMOR_KONTRAK' },
-                    { data: 'KODE_PEMBANGUNAN' },
-                    { data: 'MATERIAL_GROUP_ID' }
+                    {data:'NOMOR_KONTRAK_RINCI'},
+                    {data:'KATEGORI_PEMBANGUNAN'},
+                    {data:'MATERIAL_GROUP'},
+                    {data:'KODE_MATERIAL'},
+                    {data:'PENGGUNAAN'},
+                    {data:'NAMA_MATERIAL'},
+                    {data:'VOLUME_RENCANA'},
+                    {data:'VOLUME_TERPASANG'},
+                    {data:'SATUAN'}
                 ],
-
-                // 🔥 Format cell
-                createdRow: function (row, data) {
-                    const api = this.api();
-                    const allowedColumns = [
-                        'KATEGORI_PEMBANGUNAN',
-                        'MATERIAL_GROUP',
-                        'KODE_MATERIAL',
-                        'NAMA_MATERIAL',
-                        'JUMLAH_MDU',
-                        'SATUAN',
-                        'NOMOR_KONTRAK_RINCI'
-                    ];
-
-                    $('td', row).each(function (colIndex) {
-                        const columnDef = api.settings()[0].aoColumns[colIndex];
-                        const columnName = columnDef.data;
-                        if (!columnName || !allowedColumns.includes(columnName)) return;
-
-                        const cellValue = data[columnName];
-                        const formattedValue = columnName === 'JUMLAH_MDU' ? formatNumber(cellValue, 0) : cellValue;
-
-                        $(this)
-                            .text(formattedValue)
-                            .addClass('dt-clickable-bold')
-                            .css({
-                                cursor: 'pointer',
-                                'font-weight': 'bold',
-                                'text-align': columnName === 'JUMLAH_MDU' ? 'right' : 'left'
-                            });
-                    });
-                },
-
-                // 🔥 Subtotal + garis akhir NOMOR_KONTRAK_RINCI
-                drawCallback: function () {
-
-                    const api = this.api();
-                    const rowsData  = api.rows({ page: 'current' }).data();
-                    const rowsNodes = api.rows({ page: 'current' }).nodes();
-                    if (!rowsData.length) return;
-
-                    const $tbody = $(rowsNodes).closest('tbody');
-
-                    // reset redraw
-                    $tbody.find(
-                        'tr.subtotal-row, tr.end-kontrak-row, tr.start-kontrak-row'
-                    ).remove();
-
-                    const colQtyIndex = api.settings()[0].aoColumns.findIndex(
-                        c => c.data === 'JUMLAH_MDU'
-                    );
-                    if (colQtyIndex === -1) return;
-
-                    let lastGroup   = null;
-                    let lastKontrak = null;
-                    let subtotal    = 0;
-
-                    const groupColors = {
-                        'TIANG': '#e0f7fa',
-                        'KABEL': '#fff3e0',
-                        'AKSESORIS': '#e8f5e9'
-                    };
-
-                    rowsData.each(function (rowData, i) {
-
-                        const group   = (rowData.MATERIAL_GROUP || '(TANPA GROUP)').trim();
-                        const kontrak = (rowData.NOMOR_KONTRAK_RINCI || '').trim();
-                        const qty     = Number(rowData.JUMLAH_MDU) || 0;
-
-                        /* ==========================
-                        * START KONTRAK RINCI
-                        * ========================== */
-                        if (i === 0 || kontrak !== lastKontrak) {
-                            insertStartOfKontrak(rowsNodes[i], kontrak);
-                        }
-
-                        /* ==========================
-                        * GANTI KONTRAK RINCI
-                        * ========================== */
-                        if (lastKontrak !== null && kontrak !== lastKontrak) {
-
-                            // tutup subtotal group terakhir kontrak lama
-                            insertSubtotal(
-                                rowsNodes[i],
-                                lastGroup,
-                                subtotal,
-                                colQtyIndex,
-                                groupColors[lastGroup] || '#f5f5f5'
-                            );
-
-                            // END OF KONTRAK RINCI
-                            insertEndOfKontrak(rowsNodes[i], lastKontrak);
-
-                            subtotal  = 0;
-                            lastGroup = null;
-                        }
-
-                        /* ==========================
-                        * GANTI MATERIAL GROUP
-                        * ========================== */
-                        if (lastGroup !== null && group !== lastGroup) {
-                            insertSubtotal(
-                                rowsNodes[i],
-                                lastGroup,
-                                subtotal,
-                                colQtyIndex,
-                                groupColors[lastGroup] || '#f5f5f5'
-                            );
-                            subtotal = 0;
-                        }
-
-                        subtotal   += qty;
-                        lastGroup   = group;
-                        lastKontrak = kontrak;
-                    });
-
-                    /* ==========================
-                    * TUTUP KONTRAK TERAKHIR
-                    * ========================== */
-                    insertSubtotal(
-                        null,
-                        lastGroup,
-                        subtotal,
-                        colQtyIndex,
-                        groupColors[lastGroup] || '#f5f5f5'
-                    );
-
-                    insertEndOfKontrak(null, lastKontrak);
-
-                    /* =================================================
-                    * FUNGSI START OF KONTRAK
-                    * ================================================= */
-                    function insertStartOfKontrak(refNode, nomorKontrak) {
-
-                        if (!nomorKontrak) return;
-
-                        const totalCols = api.columns().count();
-
-                        let html =
-                            '<tr class="start-kontrak-row">' +
-                                '<td colspan="' + totalCols + '" class="start-kontrak-text">' +
-                                    'START OF KONTRAK RINCI : ' + nomorKontrak +
-                                '</td>' +
-                            '</tr>';
-
-                        $(refNode).before(html);
-                    }
-
-                    /* =================================================
-                    * FUNGSI SUBTOTAL
-                    * ================================================= */
-                    function insertSubtotal(refNode, group, value, colIndex, bgColor) {
-
-                        if (!group) return;
-
-                        const totalCols = api.columns().count();
-                        let html =
-                            '<tr class="subtotal-row fw-bold" style="background-color:' + bgColor + '">';
-
-                        for (let i = 0; i < totalCols; i++) {
-                            if (i === 0) {
-                                html += '<td>TOTAL ' + group + '</td>';
-                            } else if (i === colIndex) {
-                                // Jika angka, rata kanan
-                                 html += '<td class="textnumeric">' + formatNumber(value, 0) + '</td>';
-                            } else {
-                                html += '<td></td>';
-                            }
-                        }
-
-                        html += '</tr>';
-
-                        if (refNode) {
-                            $(refNode).before(html);
-                        } else {
-                            $tbody.append(html);
-                        }
-                    }
-
-                    /* =================================================
-                    * FUNGSI END OF KONTRAK
-                    * ================================================= */
-                    function insertEndOfKontrak(refNode, nomorKontrak) {
-
-                        if (!nomorKontrak) return;
-
-                        const totalCols = api.columns().count();
-
-                        let html =
-                            '<tr class="end-kontrak-row">' +
-                                '<td colspan="' + totalCols + '" class="end-kontrak-text">' +
-                                    'END OF KONTRAK RINCI : ' + nomorKontrak +
-                                '</td>' +
-                            '</tr>';
-
-                        if (refNode) {
-                            $(refNode).before(html);
-                        } else {
-                            $tbody.append(html);
-                        }
-                    }
-                },
-
                 lengthMenu: [[10, 100, 1000], [10, 100, 1000]]
             });
 
@@ -1473,11 +1210,10 @@
 
                 /* ================= PARAM ================= */
                 const {
-                    vtahun_laporan,
-                    vinfolabel
+                    vtahun_laporan
                 } = detailFilterParams;
 
-                if (!vtahun_laporan || !vinfolabel) {
+                if (!vtahun_laporan) {
                     alert('Filter belum lengkap');
                     return;
                 }
@@ -1492,7 +1228,7 @@
                     const params = new URLSearchParams({
                         act: 'detailData',
                         vtahun_laporan,
-                        vinfolabel,
+                        vnomor_kontrak_rinci,
                         start,
                         length: pageSize,
                         draw: draw++
@@ -1574,7 +1310,7 @@
 
                 ws.addRows([
                     ['TAHUN', vtahun_laporan],
-                    ['KETERANGAN', vinfolabel],
+                    ['KETERANGAN', vnomor_kontrak_rinci],
                     ['TANGGAL DOWNLOAD', new Date().toLocaleString('id-ID')],
                     []
                 ]);
@@ -1681,7 +1417,7 @@
                 const buffer = await workbook.xlsx.writeBuffer();
                 saveAs(
                     new Blob([buffer]),
-                    'DETAIL_' + vtahun_laporan + '_' + vinfolabel + '.xlsx'
+                    'DETAIL_' + vtahun_laporan + '_' + vnomor_kontrak_rinci + '.xlsx'
                 );
 
             } catch (e) {

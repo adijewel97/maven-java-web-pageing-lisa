@@ -40,22 +40,32 @@ public class MonPengerjaanPerKontrakController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp ) throws ServletException, IOException {
-         prosesMonRKPPerKontrak(req, resp);
+        String act = req.getParameter("act");
+
+        if ("detailData".equalsIgnoreCase(act)) {
+            handleGetDetailData(req, resp);
+            return;
+        } 
+
+        prosesMonRKPPerKontrak(req, resp);
     }
 
     private void prosesMonRKPPerKontrak(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String vtahun_laporan = req.getParameter("vtahun_laporan");
-        String vkd_prov       = req.getParameter("vkd_prov");
-        String vkd_kab        = req.getParameter("vkd_kab");
-        String vkd_kec        = req.getParameter("vkd_kec");
-        String vkd_kel        = req.getParameter("vkd_kel");
-
+        String vkdprov        = req.getParameter("vkdprov");
+        String vkdkab         = req.getParameter("vkdkab");
+        String vkdkec         = req.getParameter("vkdkec");
+        String vkdkel         = req.getParameter("vkdkel");
         int vkode;
 
         // WAJIB untuk DataTables server-side
         int draw = Integer.parseInt(req.getParameter("draw") != null ? req.getParameter("draw") : "1");
         
-        logger.info("vtahun_laporan" + vtahun_laporan);
+        logger.info("vtahun_laporan"    + vtahun_laporan);
+        logger.info("vkdprov"           + vkdprov);
+        logger.info("vkdkab"            + vkdkab);
+        logger.info("vkdkec"            + vkdkec);
+        logger.info("vkdkel"            + vkdkel);
 
         List<Map<String, Object>> data = Collections.emptyList();
         int totalCount = 0;
@@ -64,7 +74,7 @@ public class MonPengerjaanPerKontrakController extends HttpServlet {
         try {
             List<String> pesanOutput = new ArrayList<>();
             data = service.GetRkpMaterialPerKontrak(vtahun_laporan, 
-                vkd_prov, vkd_kab, vkd_kec, vkd_kel, pesanOutput);
+                vkdprov, vkdkab, vkdkec, vkdkel, pesanOutput);
             logger.info("Jumalah data yg dikembalikan "+data.size());  
             String pesanRaw = pesanOutput.isEmpty() ? "" : pesanOutput.get(0).toLowerCase().trim();
             if (pesanRaw.contains("kesalahan")) {
@@ -98,6 +108,65 @@ public class MonPengerjaanPerKontrakController extends HttpServlet {
         try (PrintWriter out = resp.getWriter()) {
             out.print(gson.toJson(jsonResponse));
         }
+
+    }
+
+    private void handleGetDetailData(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String vtahun_laporan = req.getParameter("vtahun_laporan");
+        String vkdprov        = req.getParameter("vkdprov");
+        String vkdkab         = req.getParameter("vkdkab");
+        String vkdkec         = req.getParameter("vkdkec");
+        String vkdkel         = req.getParameter("vkdkel");
+        String vnomor_kontrak_rinci     = req.getParameter("vnomor_kontrak_rinci");
+        Integer vkode;
+
+        logger.info("vtahun_laporan"+ vtahun_laporan);
+        logger.info("vkdprov"+ vkdprov);
+        logger.info("vkdkab"+ vkdkab);
+        logger.info("vkdkec"+ vkdkec);
+        logger.info("vkdkel"+ vkdkel);
+        logger.info("vnomor_kontrak_rinci"+ vnomor_kontrak_rinci);
+
+         // WAJIB untuk DataTables server-side
+        int draw = Integer.parseInt(req.getParameter("draw") != null ? req.getParameter("draw") : "1");
+        
+        List<Map<String, Object>> data = Collections.emptyList();
+        int totalCount = 0;
+        String pesan;
+
+        try{
+            List<String> stringOutput = new ArrayList<>();
+            data = service.GetDftMaterialPerKontrak(vtahun_laporan, vkdprov, vkdkab, vkdkec, vkdkel, 
+                vnomor_kontrak_rinci, stringOutput);
+            logger.info("Jumalah data yg dikembalikan "+data.size());  
+            
+            totalCount = data.size();
+            vkode = 200;
+            pesan = "Sukses: Tampikan data";
+
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Error: Mendapatkan data "+ e.getMessage(), e);
+            vkode = 402;
+            pesan = "Error: Terjadi kesalahan: " + e.getMessage();
+        }
+
+        // Format JSON sesuai DataTables server-side
+        Map<String, Object> jsonResponse = new HashMap<>();
+        jsonResponse.put("draw", draw); // WAJIB
+        jsonResponse.put("recordsTotal", totalCount); // WAJIB
+        jsonResponse.put("recordsFiltered", totalCount); // WAJIB
+        jsonResponse.put("data", data); // WAJIB
+        jsonResponse.put("status", "success");
+        jsonResponse.put("kode", vkode);
+        jsonResponse.put("pesan", pesan);
+
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        try (PrintWriter out = resp.getWriter()) {
+            out.print(gson.toJson(jsonResponse));
+        }
+
+
 
     }
 
