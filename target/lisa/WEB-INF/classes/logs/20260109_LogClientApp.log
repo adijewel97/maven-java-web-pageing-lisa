@@ -1,0 +1,26 @@
+2026-01-09 08:02:18.479 - INFO: ? Berhasil ambil data Provinsi. Jumlah data: 35
+2026-01-09 08:02:20.141 - INFO: ? Berhasil ambil data Kabupaten/Kota. Jumlah data: 23
+2026-01-09 10:28:40.837 - INFO: ? Berhasil ambil data Provinsi. Jumlah data: 35
+2026-01-09 10:28:44.738 - INFO: ? Berhasil ambil data Kabupaten/Kota. Jumlah data: 23
+2026-01-09 12:49:49.141 - INFO: vtahun_laporan: 2026
+2026-01-09 12:49:54.624 - INFO: Jumlah data dikembalikan: 35
+2026-01-09 12:49:57.484 - INFO: draw=1
+2026-01-09 12:49:57.488 - INFO: start=1, length=10
+2026-01-09 12:49:57.489 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-09 12:49:57.489 - INFO: search=
+2026-01-09 12:50:02.209 - INFO: draw=2
+2026-01-09 12:50:02.211 - INFO: start=1, length=10
+2026-01-09 12:50:02.211 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-09 12:50:02.211 - INFO: search=
+2026-01-09 12:50:02.524 - INFO: draw=3
+2026-01-09 12:50:02.524 - INFO: start=1, length=10
+2026-01-09 12:50:02.524 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-09 12:50:02.524 - INFO: search=
+2026-01-09 12:50:14.244 - INFO: draw=4
+2026-01-09 12:50:14.245 - INFO: start=1, length=10
+2026-01-09 12:50:14.245 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-09 12:50:14.245 - INFO: search=
+2026-01-09 12:50:14.556 - INFO: draw=5
+2026-01-09 12:50:14.556 - INFO: start=1, length=10
+2026-01-09 12:50:14.556 - INFO: sort=NOMOR_KONTRAK_RINCI ASC
+2026-01-09 12:50:14.556 - INFO: search=
